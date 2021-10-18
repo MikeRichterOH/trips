@@ -17,8 +17,8 @@ on:
     - .github/workflows/POI-CI.yml
     
 defaults:
-run:
-  working-directory: apis/poi
+  run:
+    working-directory: apis/poi
     
 jobs:
   build_and_test:
