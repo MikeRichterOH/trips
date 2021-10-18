@@ -21,23 +21,23 @@ run:
   working-directory: apis/poi
     
 jobs:
-build_and_test:
-  runs-on: ubuntu-latest
-  steps:
-  - name: CHECKOUT CURRENT REPO
-    uses: actions/checkout@v2
+  build_and_test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: CHECKOUT CURRENT REPO
+      uses: actions/checkout@v2
 
-  - name: Setup .NET Core
-    uses: actions/setup-dotnet@v1
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
 
-  - name: Install dependencies
-    run: dotnet restore ./web/*.csproj
+    - name: Install dependencies
+      run: dotnet restore ./web/*.csproj
 
-  - name: .NET Build Web
-    run: dotnet build --configuration Release --no-restore ./web/*.csproj
-    
-  - name: .NET Build Unit Tests
-    run: dotnet build --configuration Release ./tests/UnitTests/UnitTests.csproj
-      
-  - name: .NET Test
-    run: dotnet test --no-restore --verbosity normal ./tests/UnitTests
+    - name: .NET Build Web
+      run: dotnet build --configuration Release --no-restore ./web/*.csproj
+
+    - name: .NET Build Unit Tests
+      run: dotnet build --configuration Release ./tests/UnitTests/UnitTests.csproj
+
+    - name: .NET Test
+      run: dotnet test --no-restore --verbosity normal ./tests/UnitTests
