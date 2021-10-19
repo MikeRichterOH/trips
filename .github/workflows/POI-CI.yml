@@ -41,3 +41,15 @@ jobs:
 
     - name: .NET Test
       run: dotnet test --no-restore --verbosity normal ./tests/UnitTests
+
+    - uses: nashmaniac/create-issue-action@v1.1
+      name: Create Issue Action        
+      if: failure()        
+      with:
+        title: Build Failed        
+        token: ${{secrets.GITHUB_TOKEN}}        
+        assignees: ${{github.actor}}        
+        labels: worflow-failed        
+        body: |            
+          ${{ github.workflow }} Workflow failed for commit ${{github.sha}}
+          Build Log: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}Challenge 3 Demonstration
