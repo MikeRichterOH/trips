@@ -1,4 +1,4 @@
-name: POI-CI
+name: user-Java-CI
 on:
   pull_request:
     branches:
