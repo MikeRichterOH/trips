@@ -34,4 +34,4 @@ jobs:
       run: go build -v
 
     - name: Test
-      run: go test ./tripgo -run Unit
+      run: go test ./tripsgo -run Unit
