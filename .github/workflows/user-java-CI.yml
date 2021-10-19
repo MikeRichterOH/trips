@@ -14,7 +14,7 @@ on:
     - ch3
     paths:
     - apis/user-java/**
-    - .github/workflows/user-java.yml
+    - .github/workflows/user-java-CI.yml
     
 defaults:
   run:
