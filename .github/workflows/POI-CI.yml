@@ -2,7 +2,7 @@ name: POI-CI
 on:
   pull_request:
     branches:
-    - master
+    - main
     - ch4
     paths:
     - apis/poi/**
@@ -10,7 +10,7 @@ on:
   
   push:
     branches:
-    - master
+    - main
     - ch4
     paths:
     - apis/poi/**

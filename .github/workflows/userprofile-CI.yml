@@ -2,7 +2,7 @@ name: userprofile-CI
 on:
   pull_request:
     branches:
-    - master
+    - main
     - ch3
     paths:
     - apis/userprofile/**
@@ -10,7 +10,7 @@ on:
   
   push:
     branches:
-    - master
+    - main
     - ch3
     paths:
     - apis/userprofile/**

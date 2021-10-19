@@ -2,7 +2,7 @@ name: POI-CD
 on:
   push:
     branches:
-    - master
+    - main
     - ch4
     paths:
     - apis/poi/**

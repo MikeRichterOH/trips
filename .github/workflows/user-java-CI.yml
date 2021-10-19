@@ -2,7 +2,7 @@ name: user-Java-CI
 on:
   pull_request:
     branches:
-    - master
+    - main
     - ch3
     paths:
     - apis/user-java/**
@@ -10,7 +10,7 @@ on:
   
   push:
     branches:
-    - master
+    - main
     - ch3
     paths:
     - apis/user-java/**
