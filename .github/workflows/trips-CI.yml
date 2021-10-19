@@ -30,9 +30,6 @@ jobs:
     - name: Setup Go 1.x
       uses: actions/setup-go@v2
 
-    - name: Install dependencies
-      run: dotnet restore ./web/*.csproj
-
     - name: Build go
       run: go build -v
 
