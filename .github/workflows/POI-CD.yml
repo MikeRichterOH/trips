@@ -4,7 +4,7 @@ on:
     branches:
     - main
     - ch5
-    - ch7-va
+    - ch07-va
     paths:
     - apis/poi/**
     - .github/workflows/POI-CD.yml
