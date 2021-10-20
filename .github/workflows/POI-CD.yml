@@ -58,9 +58,9 @@ jobs:
     needs: staging-deploy
     steps:
 
-    -uses: actions/checkout@v2 # needed to get the script
-    -name: Run Validation script        
-      run: |
+    - uses: actions/checkout@v2 # needed to get the script
+    - name: Run Validation script        
+      run: | 
         chmod +x ./.github/build/healthcheck.sh
         ./.github/build/healthcheck.sh -i ${{ env.staging_url_healthcheck }}
 
@@ -74,13 +74,13 @@ jobs:
         ./.github/build/healthcheck.sh -i ${{ env.production_url_healthcheck }}
 
     - name: stop staging slot
-        run: |
-          az webapp stop -g ${{ env.resource_group }} -n ${{ env.webapp_name }} -s staging        
-          echo "staging slot stopped"
+      run: |
+        az webapp stop -g ${{ env.resource_group }} -n ${{ env.webapp_name }} -s staging        
+        echo "staging slot stopped"
     - name: display deployments
-        if: always()
-        run: |      
-          echo "Staging Slot Image"
-          az webapp show  -g ${{ env.resource_group }} -n ${{ env.webapp_name }} -s staging --query siteConfig.linuxFxVersion
-          echo "Production Slot Image"
-          az webapp show  -g ${{ env.resource_group }} -n ${{ env.webapp_name }} --query siteConfig.linuxFxVersion
+      if: always()
+      run: |      
+        echo "Staging Slot Image"
+        az webapp show  -g ${{ env.resource_group }} -n ${{ env.webapp_name }} -s staging --query siteConfig.linuxFxVersion
+        echo "Production Slot Image"
+        az webapp show  -g ${{ env.resource_group }} -n ${{ env.webapp_name }} --query siteConfig.linuxFxVersion
