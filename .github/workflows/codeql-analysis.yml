@@ -13,10 +13,10 @@ name: "CodeQL"
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main, ch07-va ]
   pull_request:
     # The branches below must be a subset of the branches above
-    branches: [ main ]
+    branches: [ main, ch07-va ]
   schedule:
     - cron: '15 13 * * 2'
   workflow_dispatch:
@@ -73,7 +73,7 @@ jobs:
     #   make bootstrap
     #   make release
 
-    - if: matrx.language == 'java'
+    - if: matrix.language == 'java'
       name: build java
       working-directory: apis/user-java
       run: |
