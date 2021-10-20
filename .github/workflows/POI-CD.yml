@@ -47,11 +47,15 @@ jobs:
       uses: azure/login@v1
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS  }}
-    - name: Azure WebApp
+    - name: Start staging        
+      run: |        
+        az webapp start -g ${{ env.resource_group }} -n ${{ env.webapp_name }} -s staging
+    - name: Azure WebApp Staging
       uses: Azure/webapps-deploy@v2
       with:
         app-name: ${{ env.webapp_name }}
         images: ${{ env.registry }}/${{ env.repository }}:${{github.run_number}}
+        slot-name: staging
 
 
   production_deploy:
