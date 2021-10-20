@@ -71,7 +71,11 @@ jobs:
       run: |
         chmod +x ./.github/build/healthcheck.sh
         ./.github/build/healthcheck.sh -i ${{ env.production_url_healthcheck }}
-
+        
+    - name: Azure authentication
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS  }}
     - name: stop staging slot
       run: |
         az webapp stop -g ${{ env.resource_group }} -n ${{ env.webapp_name }} -s staging        
