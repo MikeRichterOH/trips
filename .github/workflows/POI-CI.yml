@@ -21,7 +21,6 @@ on:
 defaults:
   run:
     working-directory: apis/poi
-    
 jobs:
   build_and_test:
     runs-on: ubuntu-latest
